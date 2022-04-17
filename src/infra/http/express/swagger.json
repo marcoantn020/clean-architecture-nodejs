@@ -1,0 +1,195 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API Exemple",
+      "description": "Documentation from Users",
+      "termsOfService": "http://localhost:3000",
+      "contact": {
+        "email": "mail@mail.com"
+      },
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "API de Desenvolvimento"
+      },
+      {
+        "url": "http://meudominio.com",
+        "description": "API de Produção"
+      }
+    ],
+    "basePath": "/",  
+    "paths": {
+
+      "/api/login": {
+        "post": {
+          "tags": ["Login"],
+          "description": "Gerar token",
+          "summary": "Logar no sistema",
+          "security": [{"beareAuth": []}],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "name": "Fulano",
+                    "password": "sua-senha"
+                  }
+                }
+              }
+            }
+          },
+          
+        "responses": {
+          "400": {
+            "description": "error"
+          },
+          "200": {
+            "description": "ok"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+        }
+      },
+  
+      "/api/user/create": {
+        "post": {
+          "tags": ["User"],
+          "description": "Cria um usuario",
+          "summary": "Adiciona um usuario",
+          "security": [{"beareAuth": []}],
+          "operationId": "addUser",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "password": {
+                      "type": "string"
+                    },
+                    "passwordConfirmation": {
+                      "type": "string"
+                    }
+                  },
+                  "example": {
+                    "name": "Fulano",
+                    "username": "Fulano",
+                    "password": "sua-senha",
+                    "passwordConfirmation": "sua-senha"
+                  }
+                }
+              }
+            }
+          },
+          
+        "responses": {
+          "400": {
+            "description": "error"
+          },
+          "200": {
+            "description": "ok"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+        }
+      },
+
+      "/api/user/list": {
+        "get": {
+          "description": "Rota que busca todos usuario",
+          "summary": "Busca de todos usuario",
+          "tags": ["User"],
+          "security": [{"beareAuth": []}],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                  "application/json": {
+                      "schema": {
+                          "type":"array",
+                          "items": {
+                            "$ref": "#/components/schemas/User"
+                          }
+                      }
+                  }
+              }
+            }
+          }
+        }
+      } 
+
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    },
+                    "created_at": {
+                        "type": "string"
+                    },
+                    "updated_at": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ResponseToken": {
+              "type": "object",
+              "properties": {
+                  "token": {
+                      "type": "number"
+                  },
+                      "name": {
+                          "type": "string"
+                      },
+                      "username": {
+                          "type": "string"
+                      },
+                      "created_at": {
+                          "type": "string"
+                      },
+                      "updated_at": {
+                          "type": "string"
+                      }
+              }
+          }
+        },
+        "securitySchemes" : {
+          "beareAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+          }
+        }
+    }
+
+  }

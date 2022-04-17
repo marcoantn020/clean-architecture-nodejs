@@ -7,7 +7,8 @@
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "yarn test -- --watch --unhandled-rejections=strict -c jest-unit-config.js",
     "test:ci": "yarn test -- --coverage",
-    "start:express": "tsnd ./src/infra/http/express/app.ts"
+    "start:express": "tsnd ./src/infra/http/express/app.ts",
+    "start:hapi": "tsnd ./src/infra/http/hapi/app.ts"
   },
   "author": "Marco Antonio <no-email@mail.com>",
   "license": "MIT",
@@ -21,12 +22,14 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
+    "@hapi/hapi": "^20.2.1",
     "@types/jsonwebtoken": "^8.5.8",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "jsonwebtoken": "^8.5.1",
     "pg-promise": "^10.11.1",
+    "swagger-ui-express": "^4.3.0",
     "ts-node-dev": "^1.1.8"
   }
 }
