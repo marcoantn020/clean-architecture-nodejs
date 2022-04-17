@@ -1,5 +1,6 @@
 import Express from 'express';
 import user from './user/user-route'
+import login from './login/login-route'
 
 // import swaggerUI from 'swagger-ui-express'
 // import swaggerClient from './client-route/swagger.json'
@@ -12,6 +13,7 @@ app.use(cors());
 
 // routes client
 app.use("/api",user)
+app.use("/api",login)
 // app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerClient))
 
 

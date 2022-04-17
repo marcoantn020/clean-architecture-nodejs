@@ -1,8 +1,8 @@
 import { UserEntity } from "../../entity/User";
 import { UserDTO } from "./user-dto";
 
-export interface IGetUserRepository {
-    list: () => Promise<UserEntity>
+export interface IListUserRepository {
+    list: () => Promise<UserEntity[]>
 }
 
 export interface ICreateUserRepository {

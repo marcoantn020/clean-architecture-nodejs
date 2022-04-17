@@ -1,5 +1,5 @@
 import { UserEntity } from "../../src/core/entity/User"
-import { ICreateUserRepository, IGetUserByUsernameRepository } from "../../src/core/repository/User"
+import { ICreateUserRepository, IGetUserByUsernameRepository, IListUserRepository } from "../../src/core/repository/User"
 import { UserDTO } from "../../src/core/repository/User/user-dto"
 
 let users: UserEntity[] = [
@@ -20,20 +20,13 @@ export class GetUserByUsernameRepositoryMemory implements IGetUserByUsernameRepo
     }
 }
 
+export class ListUsersRepositoryMemory implements IListUserRepository
+{
+    async list (): Promise<UserEntity[]> {
+        return users
+    }
+}
 
-// export class UserCreateRepositoryMemory implements ICreateUserRepository,
-// {
-//     users: UserEntity[] = [
-//         {id: 1, name: "marco", email: "email@mail.com", user: "marco", password: "password", created_at: new Date(), updated_at: new Date()}
-//     ]
-    
-//     async create (user: UserDTO): Promise<void> {
-//         try {
-//             this.users.push({id: 2,name: user.name, email: user.email, user: user.user, password: user.password, created_at: new Date(), updated_at: new Date()})
-//         } catch (error) {
-//             throw new Error()
-//         }
-//     }
 
 
     // async getOne (data: IGet): Promise<ClientEntity> {

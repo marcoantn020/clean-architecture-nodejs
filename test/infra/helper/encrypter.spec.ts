@@ -2,6 +2,7 @@ import { IEncrypter } from "../../../src/application/contracts/encrypter"
 
 const makeEncrypter = (): IEncrypter => {
     class EncrypterStub implements IEncrypter {
+      compare: (value: string, hash: string) => Promise<boolean>
       async encrypt (value: string): Promise<string> {
         return await new Promise(resolve => resolve('hashed_password'))
       }

@@ -4,7 +4,7 @@ import { Bcrypt } from "../../../infra/helper/encripter";
 import { CreateUserUseCase } from "../../usecase/user/create-user-usecase";
 
 
-export class createUserController {
+export class CreateUserController {
     
     static async handle(params: any, body: any) {
         const repositoryCreate = new UserCreateRepositorySQL()

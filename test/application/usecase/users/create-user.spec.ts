@@ -1,9 +1,9 @@
-import { IEncrypter } from "../../../src/application/contracts/encrypter"
-import { CreateUserUseCase } from "../../../src/application/usecase/user/create-user-usecase"
-import { ICreateUserRepository } from "../../../src/core/repository/User"
-import { UserDTO } from "../../../src/core/repository/User/user-dto"
-import { Bcrypt } from "../../../src/infra/helper/encripter"
-import { GetUserByUsernameRepositoryMemory, UserCreateRepositoryMemory } from "../../mock/repository-user"
+import { CreateUserUseCase } from "../../../../src/application/usecase/user/create-user-usecase"
+import { ICreateUserRepository } from "../../../../src/core/repository/User"
+import { UserDTO } from "../../../../src/core/repository/User/user-dto"
+import { Bcrypt } from "../../../../src/infra/helper/encripter"
+import { GetUserByUsernameRepositoryMemory, UserCreateRepositoryMemory } from "../../../mock/repository-user"
+
 
 class MockErroUserCreate implements ICreateUserRepository{
     create (user: UserDTO): Promise<void> {
@@ -15,7 +15,6 @@ interface sutTypes {
     sut: CreateUserUseCase
     repositoryCreate: UserCreateRepositoryMemory
     repositoryGetUsername: GetUserByUsernameRepositoryMemory
-    encrypter: IEncrypter
   }
   const makeSut = (): sutTypes => {
     const repositoryCreate = new UserCreateRepositoryMemory()
@@ -26,7 +25,6 @@ interface sutTypes {
       sut,
       repositoryCreate,
       repositoryGetUsername,
-      encrypter
     }
   }
   

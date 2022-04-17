@@ -1,22 +1,23 @@
+import { Request, Response } from "express";
+import { verify } from "jsonwebtoken";
+import { config } from "../../config/config";
 
-import { NextFunction, Request, Response } from "express";
 
-export async function authentication (
-    req: Request,
-    res: Response,
-    next: NextFunction
-) {
-    const token = req.headers.authorization
+export default async (request: Request, response: Response, next: any) => {
+    const authorizationHeader = request.headers.authorization;
 
-    if (!token) {
-        return res.status(401).send()
+    if (!authorizationHeader) {
+        return response.status(401).json({ error: `User not authorized!` });
     }
 
-    const [,user] = token.split(" ")
+    const [, token] = authorizationHeader.split(" ");
 
-    if (user === "admin") {
-        return next()
+
+    try {
+        verify(token, config.key)
+        return next();
+    } catch (error) {
+        return response.json({ error: "Token jwt invalid!" })
     }
 
-    return res.status(401).send()
 }

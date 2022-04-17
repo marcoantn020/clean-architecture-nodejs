@@ -12,6 +12,11 @@ export const ok = (data: any): IHttpResponse => ({
     body: data
   })
 
+export const notFound = (): IHttpResponse => ({
+    statusCode: 204,
+    body: null
+  })
+
 export const created = (data: any): IHttpResponse => ({
     statusCode: 201,
     body: data
