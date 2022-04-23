@@ -24,6 +24,9 @@
     - URL da documentação
         - http://localhost:3000/docs
 
+## Visualizar arquitetura 
+    - baixe o projeto e abra o arquivo arch.drawio
+
 
 Created by - Marco Antonio 
 
