@@ -1,6 +1,6 @@
 import { ListUsersRepositorySQL } from "../../../infra/database/pg-promise/repository/user/list-user-repository";
 import { UserAdapter } from "../../adapter/user/user-adapter";
-import { ListUserUsecase } from "../../usecase/user/list-user-usecase";
+import { ListUserUsecase } from "../../../core/usecase/user/list-user-usecase";
 
 
 export class ListUserController {

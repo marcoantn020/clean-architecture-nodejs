@@ -1,4 +1,4 @@
-import { CreateUserUseCase } from "../../../../src/application/usecase/user/create-user-usecase"
+import { CreateUserUseCase } from "../../../../src/core/usecase/user/create-user-usecase"
 import { ICreateUserRepository } from "../../../../src/core/repository/User"
 import { UserDTO } from "../../../../src/core/repository/User/user-dto"
 import { Bcrypt } from "../../../../src/infra/helper/encripter"

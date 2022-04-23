@@ -1,4 +1,4 @@
-import { ListUserUsecase } from "../../../../src/application/usecase/user/list-user-usecase"
+import { ListUserUsecase } from "../../../../src/core/usecase/user/list-user-usecase"
 import { UserEntity } from "../../../../src/core/entity/User"
 import { ListUsersRepositoryMemory } from "../../../mock/repository-user"
 

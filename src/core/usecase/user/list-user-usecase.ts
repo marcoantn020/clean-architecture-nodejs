@@ -1,4 +1,4 @@
-import { IListUserRepository } from "../../../core/repository/User";
+import { IListUserRepository } from "../../repository/User";
 import { IHttpResponse, notFound, ok } from "../../utils/http-util";
 
 

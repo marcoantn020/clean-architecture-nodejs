@@ -1,4 +1,4 @@
-import { LoginUsecase } from "../../../../src/application/usecase/login/login-usecase"
+import { LoginUsecase } from "../../../../src/core/usecase/login/login-usecase"
 import { Bcrypt } from "../../../../src/infra/helper/encripter"
 import { Token } from "../../../../src/infra/helper/token"
 import { GetUserByUsernameRepositoryMemory } from "../../../mock/repository-user"

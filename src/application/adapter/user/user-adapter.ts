@@ -1,5 +1,5 @@
 import { UserEntity } from "../../../core/entity/User";
-import { IHttpResponse } from "../../utils/http-util";
+import { IHttpResponse } from "../../../core/utils/http-util";
 
 
 export class UserAdapter {

@@ -1,7 +1,7 @@
 import UserCreateRepositorySQL from "../../../infra/database/pg-promise/repository/user/user-create-repository";
 import UserGetUsernameRepositorySQL from "../../../infra/database/pg-promise/repository/user/user-get-username-repository";
 import { Bcrypt } from "../../../infra/helper/encripter";
-import { CreateUserUseCase } from "../../usecase/user/create-user-usecase";
+import { CreateUserUseCase } from "../../../core/usecase/user/create-user-usecase";
 
 
 export class CreateUserController {

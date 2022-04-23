@@ -21,7 +21,8 @@
         - npm install
     - rodar servidor
         - start:express
-
+    - URL da documentação
+        - http://localhost:3000/docs
 
 
 Created by - Marco Antonio 

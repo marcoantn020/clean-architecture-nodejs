@@ -1,8 +1,8 @@
-import { IGetUserByUsernameRepository } from "../../../core/repository/User";
+import { IGetUserByUsernameRepository } from "../../repository/User";
 import { config } from "../../../infra/config/config";
-import { UserAdapter } from "../../adapter/user/user-adapter";
-import { IEncrypter } from "../../contracts/encrypter";
-import { ITokenGenerate } from "../../contracts/token";
+import { UserAdapter } from "../../../application/adapter/user/user-adapter";
+import { IEncrypter } from "../../../application/contracts/encrypter";
+import { ITokenGenerate } from "../../../application/contracts/token";
 import { IHttpResponse, ok } from "../../utils/http-util";
 import { InvalidParamError } from "../helper/errors";
 import { badRequest } from "../helper/errors/http-error";

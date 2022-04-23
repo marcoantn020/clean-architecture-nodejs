@@ -1,5 +1,5 @@
-import { ICreateUserRepository, IGetUserByUsernameRepository } from "../../../core/repository/User";
-import { IEncrypter } from "../../contracts/encrypter";
+import { ICreateUserRepository, IGetUserByUsernameRepository } from "../../repository/User";
+import { IEncrypter } from "../../../application/contracts/encrypter";
 import { created, IHttpResponse } from "../../utils/http-util";
 import { InvalidParamError } from "../helper/errors";
 import { badRequest } from "../helper/errors/http-error";

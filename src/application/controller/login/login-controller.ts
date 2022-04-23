@@ -1,7 +1,7 @@
 import UserGetUsernameRepositorySQL from "../../../infra/database/pg-promise/repository/user/user-get-username-repository";
 import { Bcrypt } from "../../../infra/helper/encripter";
 import { Token } from "../../../infra/helper/token";
-import { LoginUsecase } from "../../usecase/login/login-usecase";
+import { LoginUsecase } from "../../../core/usecase/login/login-usecase";
 
 
 export class LoginController {
