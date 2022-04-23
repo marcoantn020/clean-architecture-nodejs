@@ -3,3 +3,4 @@
 /coverage
 /docker/postgres-data
 yarn.lock
+package-lock.json
