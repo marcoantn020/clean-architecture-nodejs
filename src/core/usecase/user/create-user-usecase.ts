@@ -31,7 +31,7 @@ export class CreateUserUseCase {
 
             const { name, username, password, passwordConfirmation} = input
             const usernameExists = await this.repositoryGetUsername.getUsername(username)
-            
+            console.log(usernameExists);
             
             if (usernameExists) {
                 return badRequest(new InvalidParamError("username already exists"))
