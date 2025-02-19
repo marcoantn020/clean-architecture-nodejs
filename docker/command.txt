@@ -1,2 +1,0 @@
-// acessar postgress
-docker exec -it [nome do container] psql -U [usuario]

@@ -2,10 +2,10 @@ export const config = {
     key: "my-secret-key",
 
     db: {
-        user: "postgres",
-        password: "root",
+        user: "adm",
+        password: "adm",
         host: "localhost",
         port: 5432,
-        database: "database_app",
+        database: "app",
     }
 }

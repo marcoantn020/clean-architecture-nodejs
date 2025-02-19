@@ -1,0 +1,61 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-clean-arch
+    tty: true
+    environment:
+      POSTGRES_USER: adm
+      POSTGRES_PASSWORD: adm
+      POSTGRES_DB: app
+    volumes:
+      - postgres-clean-arch-nodejs:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - service-clean-arch-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adm"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@adm.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8082:80"
+    networks:
+      - service-clean-arch-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  node:
+    image: node:18.16.1
+    container_name: clean_arch_nodejs
+    restart: unless-stopped
+    working_dir: /var/www/
+    tty: true
+    user: "1000:1000"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/var/www
+    networks:
+      - service-clean-arch-network
+    command: >
+      bash -c "npm install && npm run start:express -- --host"
+
+volumes:
+  postgres-clean-arch-nodejs:
+    driver: local
+
+networks:
+  service-clean-arch-network:
+    driver: bridge
